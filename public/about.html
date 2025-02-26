@@ -3,58 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me </title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>About Me</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Light Mode (Default) */
+        :root {
+            --background-color: #f4f4f4;
+            --text-color: #333;
+            --header-bg: #333;
+            --header-text: white;
+            --button-bg: #007bff;
+            --button-hover: #0056b3;
+            --card-bg: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            --background-color: #1e1e1e;
+            --text-color: #ffffff;
+            --header-bg: #000;
+            --header-text: #f4f4f4;
+            --button-bg: #ff6600;
+            --button-hover: #e65c00;
+            --card-bg: #222;
+            --shadow: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Apply Theme */
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--header-bg) !important;
+        }
+
+        .navbar-brand, .nav-link {
+            color: var(--header-text) !important;
+        }
+
+        /* Toggle Button */
+        .toggle-button {
+            background-color: var(--button-bg);
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-button:hover {
+            background-color: var(--button-hover);
+        }
+
+        /* About Section */
+        .about {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Skills Section */
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .skill-card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px var(--shadow);
+            text-align: center;
+            width: 250px;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card i {
+            font-size: 2rem;
+            color: var(--button-bg);
+            margin-bottom: 10px;
+        }
+
+        /* Button */
+        .btn-primary {
+            background-color: var(--button-bg);
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--button-hover);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Header -->
     <header class="bg-dark text-white">
         <nav class="navbar navbar-expand-lg navbar-dark container">
-            <a class="navbar-brand" href="#">Akash kumar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">Akash Kumar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse-sm navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
+                <button id="toggle-mode" class="toggle-button ms-3">🌙 Dark Mode</button>
             </div>
         </nav>
     </header>
+
+    <!-- About Section -->
     <main class="container mt-5">
         <section class="about">
-            <h2 class="mb-4">About Me</h2>
-            <p>Welcome to my portfolio! I am Akash Kumar , a passionate web developer specializing in creating dynamic and responsive web applications. My goal is to deliver user-friendly and visually appealing websites that provide a seamless user experience. Here are some highlights of my background, skills, and experience:</p>
-            
-            <h3 class="mt-4">Background</h3>
-            <p>I have a degree in B.TECH from Amity University Patna. Over the years, I have worked on various projects that have helped me hone my skills in web development, project management, and team collaboration.</p>
-
-            <h3 class="mt-4">Skills</h3>
-            <ul class="list-unstyled">
-                <li><i class="fas fa-check-circle"></i> Frontend: HTML, CSS, JavaScript, React, Angular</li>
-                <li><i class="fas fa-check-circle"></i> Backend: Node.js, Express.js, MongoDB, MySQL</li>
-                <li><i class="fas fa-check-circle"></i> Tools & Technologies: Git, Docker, RESTful APIs, AJAX</li>
-                
-            </ul>
-
-            <h3 class="mt-4">Experience</h3>
-            <p>intern , I have had the opportunity to work on a variety of projects, ranging from small business websites to large-scale web applications. Here are a few notable experiences:</p>
-          
-
-            <button class="btn btn-primary mt-4" onclick="goHome()">Back to Home</button>
+            <h2>About Me</h2>
+            <p>Hello! I'm Akash Kumar, a passionate web developer specializing in building modern, responsive, and user-friendly web applications.</p>
         </section>
+
+        <!-- Skills Section -->
+        <section class="skills">
+            <div class="skill-card">
+                <i class="fas fa-code"></i>
+                <h5>Frontend Development</h5>
+                <p>HTML, CSS, JavaScript, React, Angular</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-server"></i>
+                <h5>Backend Development</h5>
+                <p>Node.js, Express.js, MongoDB, MySQL</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-tools"></i>
+                <h5>Tools & Technologies</h5>
+                <p>Git, Docker, RESTful APIs, AJAX</p>
+            </div>
+        </section>
+
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" onclick="goHome()">Back to Home</button>
+        </div>
     </main>
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2024 . All rights reserved.</p>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Akash Kumar. All rights reserved.</p>
     </footer>
-   
+
+    <!-- JavaScript -->
     <script>
         function goHome() {
             window.location.href = 'index.html';
         }
+
+        /** Dark Mode Toggle **/
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleButton = document.getElementById("toggle-mode");
+
+            if (localStorage.getItem("dark-mode") === "enabled") {
+                document.body.classList.add("dark-mode");
+                toggleButton.textContent = "☀️ Light Mode";
+            }
+
+            toggleButton.addEventListener("click", () => {
+                document.body.classList.toggle("dark-mode");
+
+                if (document.body.classList.contains("dark-mode")) {
+                    localStorage.setItem("dark-mode", "enabled");
+                    toggleButton.textContent = "☀️ Light Mode";
+                } else {
+                    localStorage.setItem("dark-mode", "disabled");
+                    toggleButton.textContent = "🌙 Dark Mode";
+                }
+            });
+        });
     </script>
+
 </body>
 </html>

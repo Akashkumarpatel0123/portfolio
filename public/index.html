@@ -1,77 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - [Your Name]</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - Akash Kumar</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    /* Light Mode (Default) */
+    :root {
+      --background-color: #f4f4f4;
+      --text-color: #333;
+      --navbar-bg: #333;
+      --navbar-text: white;
+      --button-bg: #007bff;
+      --button-hover: #0056b3;
+      --card-bg: #ffffff;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    /* Dark Mode */
+    .dark-mode {
+      --background-color: #1e1e1e;
+      --text-color: #ffffff;
+      --navbar-bg: #000;
+      --navbar-text: #f4f4f4;
+      --button-bg: #ff6600;
+      --button-hover: #e65c00;
+      --card-bg: #222;
+      --shadow: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Apply Theme */
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: var(--navbar-bg) !important;
+    }
+
+    .navbar-brand, .nav-link {
+      color: var(--navbar-text) !important;
+    }
+
+    /* Toggle Button */
+    .toggle-button {
+      background-color: var(--button-bg);
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .toggle-button:hover {
+      background-color: var(--button-hover);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('images/hero-bg.jpg') no-repeat center center/cover;
+      color: #fff;
+      padding: 100px 0;
+      text-align: center;
+      position: relative;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+    }
+
+    .hero .btn {
+      transition: all 0.3s ease;
+    }
+
+    .hero .btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* Skills Section */
+    .card {
+      background-color: var(--card-bg);
+      border: none;
+      box-shadow: 0 4px 8px var(--shadow);
+      transition: transform 0.3s;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card i {
+      font-size: 2rem;
+      color: var(--button-bg);
+      margin-bottom: 10px;
+    }
+
+    /* Scroll to Top Button */
+    #scrollToTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--button-bg);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    #scrollToTopBtn:hover {
+      background: var(--button-hover);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--navbar-bg);
+      color: var(--navbar-text);
+      padding: 20px 0;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <header class="bg-dark text-white">
-        <nav class="navbar navbar-expand-lg navbar-dark container">
-            <a class="navbar-brand" href="#">Akash Kumar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse-sm navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <main class="container mt-5">
-        <section class="intro text-center">
-            <h1>Welcome to My Portfolio</h1>
-            <p class="lead">Hi, I'm Akash kumar, a web developer specializing in creating dynamic and responsive web applications.</p>
-            <p><a href="about.html" class="btn btn-danger btn-lg">Learn More About Me</a></p>
-        </section>
-        <section class="skills mt-5">
-            <h2 class="text-center">My Skills</h2>
-            <div class="row text-center mt-4">
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Frontend Development</h5>
-                            <p class="card-text">HTML, CSS, JavaScript, React, Angular</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Backend Development</h5>
-                            <p class="card-text">Node.js, Express.js, MongoDB, MySQL</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Tools & Technologies</h5>
-                            <p class="card-text">Git, Docker, RESTful APIs, AJAX</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Other Skills</h5>
-                            <p class="card-text">Agile methodologies, UI/UX design principles</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-      
-    </main>
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2024 . All rights reserved.</p>
-    </footer>
-   
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+    <div class="container">
+      <a class="navbar-brand" href="#">Akash Kumar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <button id="toggle-mode" class="toggle-button ms-3">🌙 Dark Mode</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="display-4">Welcome to My Portfolio</h1>
+      <p class="lead">Hi, I'm Akash Kumar, a web developer specializing in creating dynamic and responsive web applications.</p>
+      <a href="about.html" class="btn btn-danger btn-lg mt-3">Learn More About Me</a>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <main class="container my-5">
+    <section class="skills text-center">
+      <h2 class="mb-4">My Skills</h2>
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="card">
+            <i class="fa-solid fa-desktop"></i>
+            <h5>Frontend Development</h5>
+            <p>HTML, CSS, JavaScript, React, Angular</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <i class="fa-solid fa-server"></i>
+            <h5>Backend Development</h5>
+            <p>Node.js, Express.js, MongoDB, MySQL</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <i class="fa-solid fa-tools"></i>
+            <h5>Tools & Technologies</h5>
+            <p>Git, Docker, RESTful APIs, AJAX</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollToTopBtn" onclick="scrollToTop()"><i class="fas fa-chevron-up"></i></button>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Akash Kumar. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleButton = document.getElementById("toggle-mode");
+
+      if (localStorage.getItem("dark-mode") === "enabled") {
+          document.body.classList.add("dark-mode");
+          toggleButton.textContent = "☀️ Light Mode";
+      }
+
+      toggleButton.addEventListener("click", () => {
+          document.body.classList.toggle("dark-mode");
+
+          if (document.body.classList.contains("dark-mode")) {
+              localStorage.setItem("dark-mode", "enabled");
+              toggleButton.textContent = "☀️ Light Mode";
+          } else {
+              localStorage.setItem("dark-mode", "disabled");
+              toggleButton.textContent = "🌙 Dark Mode";
+          }
+      });
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
+
 </body>
 </html>
