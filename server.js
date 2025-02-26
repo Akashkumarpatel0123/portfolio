@@ -13,12 +13,12 @@ app.get("/about", (req, res) => res.sendFile(path.join(__dirname, "public", "abo
 app.get("/projects", (req, res) => res.sendFile(path.join(__dirname, "public", "projects.html")));
 app.get("/contact", (req, res) => res.sendFile(path.join(__dirname, "public", "contact.html")));
 
-// ✅ Handle 404 Errors
+// ✅ Catch-all route (for debugging)
 app.use((req, res) => {
-    res.status(404).send("Page Not Found");
+    res.status(404).send("Page Not Found: " + req.url);
 });
 
-// ✅ Start server
+// ✅ Start the server
 app.listen(PORT, "0.0.0.0", () => {
     console.log(`✅ Server is running on http://localhost:${PORT}`);
 });
